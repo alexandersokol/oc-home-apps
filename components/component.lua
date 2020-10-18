@@ -16,4 +16,8 @@ function component.isAvailable(componentType)
 
 end
 
+function component.proxy()
+    return {}
+end
+
 return component
