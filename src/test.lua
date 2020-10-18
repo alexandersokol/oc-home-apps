@@ -37,25 +37,35 @@ craftable = {
     }
 }
 
-local tier = {}
+--local tier = {}
+--
+--for key,a in pairs(aspect) do
+--    if(tier[a.tier] == nil) then
+--        tier[a.tier] = {}
+--    end
+--    table.insert(tier[a.tier], a)
+--end
+--
+--for i=1,#tier do
+--    print("--- TIER " .. i .. " ------------")
+--    for j=1,#tier[i] do
+--        local asp = tier[i][j]
+--        local parents
+--        if asp.parents ~= nil then
+--            parents = asp.parents[1].label .. " + " .. asp.parents[2].label
+--        else
+--            parents = "nil"
+--        end
+--        print(asp.tier, asp.label .. " = " .. parents)
+--    end
+--end
 
-for key,a in pairs(aspect) do
-    if(tier[a.tier] == nil) then
-        tier[a.tier] = {}
-    end
-    table.insert(tier[a.tier], a)
+function testError()
+    return "10"
+--    if true then
+--        error("Some error")
+--    end
 end
 
-for i=1,#tier do
-    print("--- TIER " .. i .. " ------------")
-    for j=1,#tier[i] do
-        local asp = tier[i][j]
-        local parents
-        if asp.parents ~= nil then
-            parents = asp.parents[1].label .. " + " .. asp.parents[2].label
-        else
-            parents = "nil"
-        end
-        print(asp.tier, asp.label .. " = " .. parents)
-    end
-end
+local status, err = pcall(testError)
+print("Hello " .. tostring(status) .. "   " .. err)
