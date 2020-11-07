@@ -24,7 +24,8 @@ function getRecipeByChestItems()
         :: continue ::
     end
 
-    if #matched == 0 then -- this logic needs some improvement
+    if #matched == 0 then
+        -- this logic needs some improvement
         return nil
     else
         return matched[1]
@@ -34,8 +35,8 @@ end
 function findItemInChest(item)
     items = chest.getAllStacks()
     for i = 1, #items do
-        local basic = items[i].basic
-        if (basic.display_name == item.label and basic.qty == item.count) then
+        local basic = items[i].basic()
+        if (basic.display_name == item.label and basic.qty >= item.count) then
             return true
         end
     end
@@ -48,4 +49,6 @@ if recipe then
 else
     print("No recipes matched")
 end
+
+
 

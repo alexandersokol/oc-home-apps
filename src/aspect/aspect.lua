@@ -5,31 +5,43 @@ local aspect = {
         label = "Aer",
         name = "gaseousaeressentia",
         tier = 0,
+        foreground = 0x080808,
+        background = 0xffff00,
     },
     terra = {
         label = "Terra",
         name = "gaseousterraessentia",
-        tier = 0
+        tier = 0,
+        foreground = 0xffffff,
+        background = 0x5faf00
     },
     aqua = {
         label = "Aqua",
         name = "gaseousaquaessentia",
-        tier = 0
+        tier = 0,
+        foreground = 0xffffff,
+        background = 0x5fafff
     },
     ignis = {
         label = "Ignis",
         name = "gaseousignisessentia",
-        tier = 0
+        tier = 0,
+        foreground = 0x080808,
+        background = 0xff5f00
     },
     ordo = {
         label = "Ordo",
         name = "gaseousordoessentia",
-        tier = 0
+        tier = 0,
+        foreground = 0x080808,
+        background = 0xd7d7d7
     },
     perditio = {
         label = "Perditio",
         name = "gaseousperditioessentia",
-        tier = 0
+        tier = 0,
+        foreground = 0xffffff,
+        background = 0x5f5f5f
     },
 
     -- Tier 1
@@ -37,52 +49,72 @@ local aspect = {
     gelum = {
         label = "Gelum",
         name = "gaseousgelumessentia",
-        tier = 1
+        tier = 1,
+        foreground = 0x080808,
+        background = 0xafd7d7
     },
     lux = {
         label = "Lux",
         name = "gaseousluxessentia",
-        tier = 1
+        tier = 1,
+        foreground = 0x080808,
+        background = 0xd7d700
     },
     motus = {
         label = "Motus",
         name = "gaseousmotusessentia",
-        tier = 1
+        tier = 1,
+        foreground = 0x080808,
+        background = 0xafafaf
     },
     permutatio = {
         label = "Permutatio",
         name = "gaseouspermutatioessentia",
-        tier = 1
+        tier = 1,
+        foreground = 0xffffff,
+        background = 0x5f8787
     },
     potentia = {
         label = "Potentia",
         name = "gaseouspotentiaessentia",
-        tier = 1
+        tier = 1,
+        foreground = 0x080808,
+        background = 0xafd7d7
     },
     tempestas = {
         label = "Tempestas",
         name = "",
-        tier = 1
+        tier = 1,
+        foreground = 0x080808,
+        background = 0xeeeeee
     },
     vacuos = {
         label = "Vacuos",
         name = "gaseousvacuosessentia",
-        tier = 1
+        tier = 1,
+        foreground = 0x080808,
+        background = 0xa8a8a8
     },
     venenum = {
         label = "Venenum",
         name = "gaseousvenenumessentia",
-        tier = 1
+        tier = 1,
+        foreground = 0x080808,
+        background = 0x87d700
     },
     victus = {
         label = "Victus",
         name = "gaseousvictusessentia",
-        tier = 1
+        tier = 1,
+        foreground = 0xffffff,
+        background = 0xaf0000
     },
     vitreus = {
         label = "Vitreus",
         name = "gaseousvitreusessentia",
-        tier = 1
+        tier = 1,
+        foreground = 0x080808,
+        background = 0xafffff
     },
 
     -- Tier 2
@@ -90,67 +122,93 @@ local aspect = {
     bestia = {
         label = "Bestia",
         name = "gaseousbestiaessentia",
-        tier = 2
+        tier = 2,
+        foreground = 0xffffff,
+        background = 0x875f00
     },
     fames = {
         label = "Fames",
         name = "gaseousfamesessentia",
-        tier = 2
+        tier = 2,
+        foreground = 0xffffff,
+        background = 0x870000
     },
     herba = {
         label = "Herba",
         name = "gaseousherbaessentia",
-        tier = 2
+        tier = 2,
+        foreground = 0xffffff,
+        background = 0x008700
     },
     iter = {
         label = "Iter",
         name = "gaseousiteressentia",
-        tier = 2
+        tier = 2,
+        foreground = 0xffffff,
+        background = 0xd75f87
     },
     limus = {
         label = "Limus",
         name = "gaseouslimusessentia",
-        tier = 2
+        tier = 2,
+        foreground = 0x585858,
+        background = 0x87d700
     },
     metallum = {
         label = "Metallum",
         name = "gaseousmetallumessentia",
-        tier = 2
+        tier = 2,
+        foreground = 0x585858,
+        background = 0xafafd7
     },
     mortuus = {
         label = "Mortuus",
         name = "gaseousmortuusessentia",
-        tier = 2
+        tier = 2,
+        foreground = 0xffffff,
+        background = 0xaf8787
     },
     praecantatio = {
         label = "Praecantatio",
         name = "gaseouspraecantatioessentia",
-        tier = 2
+        tier = 2,
+        foreground = 0xffffff,
+        background = 0xaf00ff
     },
     sano = {
         label = "Sano",
         name = "gaseoussanoessentia",
-        tier = 2
+        tier = 2,
+        foreground = 0xffffff,
+        background = 0xff0000
     },
     tenebrae = {
         label = "Tenebrae",
         name = "gaseoustenebraeessentia",
-        tier = 2
+        tier = 2,
+        foreground = 0xffffff,
+        background = 0x444444
     },
     vinculum = {
         label = "Vinculum",
         name = "gaseousvinculumessentia",
-        tier = 2
+        tier = 2,
+        foreground = 0xffffff,
+        background = 0x875f5f
     },
     volatus = {
         label = "Volatus",
         name = "gaseousvolatusessentia",
-        tier = 2
+        tier = 2,
+        foreground = 0x585858,
+        background = 0xd7d7af
     },
     tempus = {
         label = "Tempus",
         name = "gaseoustempusessentia",
-        tier = 2
+        tier = 2,
+        foreground = 0x080808,
+        background = 0xd7afff
     },
 
     -- Tier 3
@@ -158,37 +216,51 @@ local aspect = {
     alienis = {
         label = "Alienis",
         name = "gaseousalienisessentia",
-        tier = 3
+        tier = 3,
+        foreground = 0xffffff,
+        background = 0xaf5f87
     },
     arbor = {
         label = "Arbor",
         name = "gaseousarboressentia",
-        tier = 3
+        tier = 3,
+        foreground = 0xffffff,
+        background = 0xaf8700
     },
     auram = {
         label = "Auram",
         name = "gaseousauramessentia",
-        tier = 3
+        tier = 3,
+        foreground = 0x080808,
+        background = 0xd7afd7
     },
     corpus = {
         label = "Corpus",
         name = "gaseouscorpusessentia",
-        tier = 3
+        tier = 3,
+        foreground = 0xffffff,
+        background = 0xd75f87
     },
     exanimis = {
         label = "Exanimis",
         name = "gaseousexanimisessentia",
-        tier = 3
+        tier = 3,
+        foreground = 0xffffff,
+        background = 0x5f5f00
     },
     spiritus = {
         label = "Spiritus",
         name = "gaseousspiritusessentia",
-        tier = 3
+        tier = 3,
+        foreground = 0xffffff,
+        background = 0x6c6c6c
     },
     vitium = {
         label = "Vitium",
         name = "gaseousvitiumessentia",
-        tier = 3
+        tier = 3,
+        foreground = 0xffffff,
+        background = 0xaf0087
     },
 
     -- Tier 4
@@ -196,12 +268,16 @@ local aspect = {
     cognitio = {
         label = "Cognitio",
         name = "gaseouscognitioessentia",
-        tier = 4
+        tier = 4,
+        foreground = 0x080808,
+        background = 0xd7afaf
     },
     sensus = {
         label = "sensus",
         name = "gaseoussensusessentia",
-        tier = 4
+        tier = 4,
+        foreground = 0x4e4e4e,
+        background = 0x87d7ff
     },
 
     -- Tier 5
@@ -209,7 +285,9 @@ local aspect = {
     humanus = {
         label = "Humanus",
         name = "gaseoushumanusessentia",
-        tier = 5
+        tier = 5,
+        foreground = 0x4e4e4e,
+        background = 0xffd7af
     },
 
     -- Tier 6
@@ -217,22 +295,30 @@ local aspect = {
     instrumentum = {
         label = "Instrumentum",
         name = "gaseousinstrumentumessentia",
-        tier = 6
+        tier = 6,
+        foreground = 0xffffff,
+        background = 0x5f5fd7
     },
     lucrum = {
         label = "Lucrum",
         name = "gaseouslucrumessentia",
-        tier = 6
+        tier = 6,
+        foreground = 0xffffff,
+        background = 0xd7af00
     },
     messis = {
         label = "Messis",
         name = "gaseousmessisessentia",
-        tier = 6
+        tier = 6,
+        foreground = 0x4e4e4e,
+        background = 0xd7af87
     },
     perfodio = {
         label = "Perfodio",
         name = "gaseousperfodioessentia",
-        tier = 6
+        tier = 6,
+        foreground = 0x4e4e4e,
+        background = 0xd7d7d7
     },
 
     -- Tier 7
@@ -240,32 +326,44 @@ local aspect = {
     fabrico = {
         label = "Fabrico",
         name = "gaseousfabricoessentia",
-        tier = 7
+        tier = 7,
+        foreground = 0x4e4e4e,
+        background = 0x87afaf
     },
     machina = {
         label = "Machina",
         name = "gaseousmachinaessentia",
-        tier = 7
+        tier = 7,
+        foreground = 0xffffff,
+        background = 0x8787af
     },
     meto = {
         label = "Meto",
         name = "gaseousmetoessentia",
-        tier = 7
+        tier = 7,
+        foreground = 0xffffff,
+        background = 0xd7af5f
     },
     pannus = {
         label = "Pannus",
         name = "gaseouspannusessentia",
-        tier = 7
+        tier = 7,
+        foreground = 0x4e4e4e,
+        background = 0xffffd7
     },
     telum = {
         label = "Telum",
         name = "gaseoustelumessentia",
-        tier = 7
+        tier = 7,
+        foreground = 0xffffff,
+        background = 0xd75f5f
     },
     tutamen = {
         label = "Tutamen",
         name = "gaseoustutamenessentia",
-        tier = 7
+        tier = 7,
+        foreground = 0xffffff,
+        background = 0x87d7d7
     },
 }
 

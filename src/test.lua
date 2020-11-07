@@ -1,6 +1,6 @@
-a = false
+local isCancelled = true
+local isDone = true
 
-if(not a) then
-    print("yes")
+if(not isCancelled and not isDone) then
+    print("kfs")
 end
-print("Hello")

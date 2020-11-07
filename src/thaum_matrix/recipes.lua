@@ -29,8 +29,8 @@ local recipes = {
 }
 
 for i = 1, #recipes do
-    if (recipes.centralItem.count == nil) then
-        recipes.centralItem.count = 1
+    if (recipes[i].centralItem.count == nil) then
+        recipes[i].centralItem.count = 1
     end
 
     for j = 1, #recipes[i].items do
