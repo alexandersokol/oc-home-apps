@@ -1,6 +1,6 @@
 local component = require("component")
-local aspect = require("aspect")
-local colors = require("colors")
+local aspects = require("aspect")
+local me = component.me_interface
 
 local GPU_1_ADDRESS = "5ad95739-feab-4396-86b4-4d8a5f8fb6a0"
 local GPU_2_ADDRESS = "1c6fc182-6a0d-4481-b22c-d591de6be6c3"
@@ -16,47 +16,124 @@ local screen2 = component.proxy(SCREEN_2_ADDRESS)
 print("screen1 bind: " .. tostring(gpu1.bind(screen1.address)))
 print("screen2 bind: " .. tostring(gpu2.bind(screen2.address)))
 
-local RR = {
-    "00",
-    "33",
-    "66",
-    "99",
-    "CC",
-    "FF"
-}
+local aspectKeyTable = {}
+local aspectTable = {}
 
-local GG = {
-    "00",
-    "24",
-    "49",
-    "6D",
-    "92",
-    "B6",
-    "DB",
-    "FF"
-}
+local currentGPU = gpu1
+local w, h = currentGPU.getResolution()
 
-local BB = {
-    "00",
-    "40",
-    "80",
-    "C0",
-    "FF"
-}
+local x = 1
+local y = 1
 
-for r=1, #RR do
-    for g=1, #GG do
-        for b=1, #BB do
-            local color = "0x" .. RR[r] .. GG[g] .. BB[b]
+local width = w / 2
+local height = 3
 
-        end
-    end
+local paddingX = 2
+local paddingY = math.floor(height / 2)
+
+local cursorX = x + paddingX
+local cursorY = y + paddingY
+local cursorEnd = width - paddingX
+
+print("screenSize:" .. w .. "x" .. h)
+
+for _, b in pairs(aspects) do
+    aspectKeyTable[b.name] = b
 end
 
-local w, h = gpu2.getResolution()
-gpu2.fill(1, 1, w, h, " ")
-gpu2.setForeground(0xFFFF00)
-gpu2.fill(1, 1, w, h/2, "█")
-gpu2.setForeground(0x808080)
-gpu2.fill(1, h/2, w, h, "█")
+function aspectSort(a, b)
+    if not a.amount then
+        return false
+    elseif not b.amount then
+        return true
+    elseif a.amount > b.amount then
+        return true
+    end
+    return false
+end
 
+function updateAspectAmount()
+    local networkAspects = me.getFluidsInNetwork()
+    aspectTable = {}
+    for i = 1, #networkAspects do
+        if networkAspects[i] and networkAspects[i].amount then
+            local item = aspectKeyTable[networkAspects[i].name]
+            item.amount = math.floor(networkAspects[i].amount / 128)
+            table.insert(aspectTable, item)
+        end
+    end
+
+    table.sort(aspectTable, aspectSort)
+end
+
+function resetValues()
+    x = 1
+    y = 1
+
+    width = w / 2
+    height = 3
+
+    paddingX = 2
+    paddingY = math.floor(height / 2)
+
+    cursorX = x + paddingX
+    cursorY = y + paddingY
+    cursorEnd = width - paddingX
+end
+
+gpu1.setBackground(0x000000)
+gpu1.fill(1, 1, w, h, " ")
+gpu2.setBackground(0x000000)
+gpu2.fill(1, 1, w, h, " ")
+
+while true do
+    updateAspectAmount()
+    resetValues()
+
+    currentGPU = gpu1
+    local gpuSwitched = false
+
+    for i = 1, #aspectTable do
+        local aspect = aspectTable[i]
+        currentGPU.setBackground(aspect.background)
+        currentGPU.setForeground(aspect.foreground)
+        currentGPU.fill(x, y, width, height, " ")
+        currentGPU.set(cursorX, cursorY, aspect.label)
+
+        if (aspect.amount) then
+            local amountStr = tostring(aspect.amount)
+            local length = string.len(amountStr)
+
+            currentGPU.set(cursorEnd - length, cursorY, amountStr)
+        end
+
+        y = y + height
+        if y + height > h then
+            y = 1
+            x = x + w / 2
+            cursorEnd = w - paddingX
+        end
+
+        cursorX = x + paddingX
+        cursorY = y + paddingY
+
+        if x > w then
+            if gpuSwitched then
+                break
+            else
+                currentGPU = gpu2
+                resetValues()
+                gpuSwitched = true
+            end
+        end
+    end
+    os.sleep(1)
+end
+
+gpu1.setBackground(0x000000)
+gpu1.setForeground(0xffffff)
+gpu1.fill(1, 1, w, h, " ")
+
+gpu2.setBackground(0x000000)
+gpu2.setForeground(0xffffff)
+gpu2.fill(1, 1, w, h, " ")

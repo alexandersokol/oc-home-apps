@@ -273,7 +273,7 @@ local aspect = {
         background = 0xd7afaf
     },
     sensus = {
-        label = "sensus",
+        label = "Sensus",
         name = "gaseoussensusessentia",
         tier = 4,
         foreground = 0x4e4e4e,
